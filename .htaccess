@@ -1,0 +1,37 @@
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+
+## hide .php extension
+# To externally redirect
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R,L,NC]
+
+# Disable directory browsing 
+Options -Indexes
+
+RewriteRule ^(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))/about$ ./about.php?u=$1 [L]
+RewriteRule ^(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))/following$ ./following.php?u=$1 [L]
+RewriteRule ^(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))/followers$ ./followers.php?u=$1 [L]
+RewriteRule ^(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))/photos$ ./photos.php?u=$1 [L]
+RewriteRule ^search/$ ./searches.php [L]
+RewriteRule ^search/(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))$ ./searches.php?q=$1 [L]
+RewriteRule ^hashtags/(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))$ ./hashtag.php?q=$1 [L]
+RewriteRule ^post/(.*/([0-9]+)|([0-9]+))$ ./post.php?pid=$1 [L]
+RewriteRule ^messages/$ ./messages.php [L]
+RewriteRule ^messages/(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))$ ./messages.php?u=$1 [L]
+
+   
+
+## To internally redirect 
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [L]
+
+RewriteRule ^(css|js)/([\w-]+)\.\d+\.\1$ $1/$2.$1 [L]
+
+RewriteRule    ^admin/?$    ./admin/index.php [NC,L] 
+RewriteRule    ^install/?$    ./install/index.php [NC,L] 
+
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))/1$ ./profile.php?u=$1&s=1 [NC,L] 
+RewriteRule ^(.*/([a-zA-Z0-9_-]+)|([a-zA-Z0-9_-]+))/?$ ./profile.php?u=$1 [NC,L]

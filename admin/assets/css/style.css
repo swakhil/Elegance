@@ -1,0 +1,83 @@
+/*!
+ * STYLE FOR ELEGANCE SOCIAL NETWORK
+ *
+ * @Team author : Smart Xplorer (smartxplorer)
+ * @Team author email: smartxplorerdev@gmail.com 
+ *************************************************
+ * Elegance - The Elegant Social Network Platform
+ * Copyright (c) 2017 Elegant. All rights reserved.
+ */
+
+ @media (min-width: 992px) {
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category {
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
+}
+
+.back-transparent {
+    -webkit-user-select: none;
+    background-position: 0px 0px, 10px 10px;
+    background-size: 20px 20px;
+    background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);
+}
+
+.p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.all-icons [class*="pe-"]{
+    font-size: 40px;
+}
+.all-icons input{
+    border: 0;
+}
+.all-icons .font-icon-detail{
+    text-align: center;
+    padding: 45px 0px 30px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+.all-icons .font-icon-detail input{
+    margin: 25px auto 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #aaa;
+    font-size: 13px;
+}
+
+#map{
+    position:relative;
+    width:100%;
+    height: calc(100% - 60px);
+}
+
+.places-buttons .btn{
+    margin-bottom: 30px
+}
+.sidebar .nav > li.active-pro{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+.sidebar .nav > li.active-pro a{
+    background: rgba(255, 255, 255, 0.14);
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.table-upgrade td:nth-child(2),
+.table-upgrade td:nth-child(3){
+    text-align: center;
+}
